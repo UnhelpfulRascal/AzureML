@@ -9,19 +9,20 @@ from sklearn.preprocessing import OneHotEncoder
 import pandas as pd
 from azureml.core.run import Run
 from azureml.data.dataset_factory import TabularDatasetFactory
+from azureml.core import Dataset
 
 # TODO: Create TabularDataset using TabularDatasetFactory
 # Data is located at:
 # "https://automlsamplenotebookdata.blob.core.windows.net/automl-sample-notebook-data/bankmarketing_train.csv"
 
 web_path = 'https://automlsamplenotebookdata.blob.core.windows.net/automl-sample-notebook-data/bankmarketing_train.csv'
-ds = Dataset.Tabular.from_delimited_files(path=web_path)
-
+ds = Dataset.Tabular.from_delimited_files(path = web_path)
+df = ds.to_pandas_dataframe(df)
 x, y = clean_data(ds)
 
 # TODO: Split data into train and test sets.
 
-x_train, x_test, y_train, y_test = train_test_split(x, y, test_size=0.33)
+x_train, x_test, y_train, y_test = train_test_split(x, y, test_size = 0.33, random_sample = 42))
 
 run = Run.get_context()
 
