@@ -89,7 +89,7 @@ hyperdrive_config = HyperDriveConfig(estimator=est,
 
 # Submit your hyperdrive run to the experiment and show run details with the widget.
 
-hyperdrive_run = experiment.submit(config=hyperdrive_config)
+hyperdrive_run = exp.submit(config=hyperdrive_config)
 RunDetails(hyperdrive_run).show()
 hyperdrive_run.wait_for_completion()
 
@@ -115,7 +115,7 @@ from azureml.data.dataset_factory import TabularDatasetFactory
 # "https://automlsamplenotebookdata.blob.core.windows.net/automl-sample-notebook-data/bankmarketing_train.csv"
 
 web_path = 'https://automlsamplenotebookdata.blob.core.windows.net/automl-sample-notebook-data/bankmarketing_train.csv'
-ds = Dataset.Tabular.from_delimited_files(path=web_path)
+ds = Dataset.Tabular.from_delimited_files(path = web_path)
 
 from train import clean_data
 
