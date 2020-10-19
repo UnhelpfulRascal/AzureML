@@ -15,11 +15,13 @@ from azureml.data.dataset_factory import TabularDatasetFactory
 # "https://automlsamplenotebookdata.blob.core.windows.net/automl-sample-notebook-data/bankmarketing_train.csv"
 
 web_path = 'https://automlsamplenotebookdata.blob.core.windows.net/automl-sample-notebook-data/bankmarketing_train.csv'
-data = Dataset.Tabular.from_delimited_files(path = web_path)
+ds = TabularDatasetFactory.from_delimited_files(path = web_path)
 
-x, y = clean_data(ds)
-
-x_train, x_test, y_train, y_test = train_test_split(x, y, test_size = 0.33, random_sample = 42)
+#x, y = clean_data(ds)
+#x = ds.loc[:, ds.columns != y]
+#y = ds.loc[:, ds.columns == y]
+#x_train, x_test, y_train, y_test = train_test_split(x, y, test_size = 0.33, random_state = 42)
+#train_data, test_data = train_test_split(ds, test_size = 0.33, random_state = 42)
 
 run = Run.get_context()
 
@@ -49,6 +51,11 @@ def clean_data(data):
 
     y_df = x_df.pop("y").apply(lambda s: 1 if s == "yes" else 0)
     
+    return clean_data(data)
+
+x, y = clean_data(ds)
+x_train, x_test, y_train, y_test = train_test_split(x, y, test_size = 0.33, random_state = 42)
+
 
 def main():
     # Add arguments to script
