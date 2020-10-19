@@ -20,6 +20,7 @@ ds = TabularDatasetFactory.from_delimited_files(path = web_path)
 #x, y = clean_data(ds)
 #x = ds.loc[:, ds.columns != y]
 #y = ds.loc[:, ds.columns == y]
+
 #x_train, x_test, y_train, y_test = train_test_split(x, y, test_size = 0.33, random_state = 42)
 #train_data, test_data = train_test_split(ds, test_size = 0.33, random_state = 42)
 
@@ -51,10 +52,7 @@ def clean_data(data):
 
     y_df = x_df.pop("y").apply(lambda s: 1 if s == "yes" else 0)
     
-    return clean_data(data)
-
-x, y = clean_data(ds)
-x_train, x_test, y_train, y_test = train_test_split(x, y, test_size = 0.33, random_state = 42)
+    return x_df, y_df
 
 
 def main():
@@ -68,11 +66,15 @@ def main():
 
     run.log("Regularization Strength:", np.float(args.C))
     run.log("Max iterations:", np.int(args.max_iter))
-
+    
+    x, y = clean_data(ds)
+    x_train, x_test, y_train, y_test = train_test_split(x, y, test_size = 0.33, random_state = 42)
+    
     model = LogisticRegression(C=args.C, max_iter=args.max_iter).fit(x_train, y_train)
 
     accuracy = model.score(x_test, y_test)
     run.log("Accuracy", np.float(accuracy))
+    
 
 if __name__ == '__main__':
     main()
