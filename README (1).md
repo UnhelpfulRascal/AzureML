@@ -50,6 +50,5 @@ This model is then compared to an Azure AutoML run.
 + The accuracy of the primary metric in the Linear Progression model used in Hyperdrive optimization is very good, but there are still a lot of things that can be used to boost accuracy. *Normalization* and *regularisation* of data are two of the multiple ways to gain improvements. Normalizing data (i.e., shift it to have a mean of zero, and a spread of 1 standard deviation) will result to fewer null values and less redundant data, making the dataset more compact. Regularization of features, on the other hand, tends to minimize potential over-fitting.
 
 ## Proof of cluster clean up
-**If you did not delete your compute cluster in the code, please complete this section. Otherwise, delete this section.**
 **Image of cluster marked for deletion**
 ![alt text](https://github.com/UnhelpfulRascal/AzureML/blob/main/compute_delete.png)
