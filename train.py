@@ -17,13 +17,6 @@ from azureml.data.dataset_factory import TabularDatasetFactory
 web_path = 'https://automlsamplenotebookdata.blob.core.windows.net/automl-sample-notebook-data/bankmarketing_train.csv'
 ds = TabularDatasetFactory.from_delimited_files(path = web_path)
 
-#x, y = clean_data(ds)
-#x = ds.loc[:, ds.columns != y]
-#y = ds.loc[:, ds.columns == y]
-
-#x_train, x_test, y_train, y_test = train_test_split(x, y, test_size = 0.33, random_state = 42)
-#train_data, test_data = train_test_split(ds, test_size = 0.33, random_state = 42)
-
 run = Run.get_context()
 
 def clean_data(data):
