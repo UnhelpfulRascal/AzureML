@@ -54,7 +54,6 @@ def clean_data(data):
     
     return x_df, y_df
 
-
 def main():
     # Add arguments to script
     parser = argparse.ArgumentParser()
@@ -75,6 +74,5 @@ def main():
     accuracy = model.score(x_test, y_test)
     run.log("Accuracy", np.float(accuracy))
     
-
 if __name__ == '__main__':
     main()
