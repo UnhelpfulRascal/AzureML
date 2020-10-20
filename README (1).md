@@ -11,7 +11,7 @@ This model is then compared to an Azure AutoML run.
 + The best performing model is the Voting Ensemble Classification model executed during AutoML run. It's accuracy score is `91.55 %` while the Sci-kit learn Logistic Regression model scored a `91.09 %` accuracy. 
 
 ## Scikit-learn Pipeline
-+ After initializing the workspace and creating a compute target for model training, the first step in the project is to create a 'TabularDataset' from a CSV file downloaded from a public web URL using the 'TabularDatasetFactory' class.
++ After initializing the workspace and creating a compute target for model training, the first step in the project is to create a `TabularDataset` from a CSV file downloaded from a public web URL using the `TabularDatasetFactory` class.
 
 + The data was then *prepared*, *cleaned*, and *split* using the pre-configured training script **'(train.py)'**. The data is categorically sorted and thus *one-hot encoding* is used to clean up the data executed within the 'clean data' function in the 'train.py' script. One-hot encoding creates a new binary column that shows the presence of each potential value from the original data. The dataset was then split into a *train (2/3)* and a *test (1/3)* dataset.
 
