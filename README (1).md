@@ -8,7 +8,7 @@ This model is then compared to an Azure AutoML run.
 ## Summary
 + The dataset on this project contains data about direct marketing campaigns through a phone call of a banking institution. This project aims to predict if the client will subscribe `(yes/no)` to a term deposit `(y variable)`.
 
-**In 1-2 sentences, explain the solution: e.g. "The best performing model was a ..."**
++ The best performing model is the Voting Ensemble Classification model executed during AutoML run. It's accuracy score is `91.55 %` while the Sci-kit learn Logistic Regression model scored `91.09 %' 
 
 ## Scikit-learn Pipeline
 + After initializing the workspace and creating a compute target for model training, the first step in the project is to create a 'TabularDataset' from a CSV file downloaded from a public web URL using the 'TabularDatasetFactory' class.
